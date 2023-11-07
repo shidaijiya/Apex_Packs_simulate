@@ -115,6 +115,20 @@ def mythical():
     return mythical_appear
 
 
+def set_mythical():
+    with open('history.txt', 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            line = line.strip()  # 去除行首尾的空白字符
+            number_draws, next_legendary, next_mythical = line.split(',')
+            number_draws = int(number_draws)
+            next_legendary = int(next_legendary)
+    with open('history.txt', 'w+') as file:
+        new_data = f'{number_draws},{next_legendary},500'
+        file.write(new_data)
+        file.close()
+
+
 def start_draw():
     list_result = []
     legendary_appear = legendary()
@@ -130,6 +144,7 @@ def start_draw():
             elif lottery_result == '神话':
                 list_result.clear()
                 list_result.append("传家宝碎片*50,传家宝碎片*50,传家宝碎片*50")
+                set_mythical()
                 break
             elif legendary_appear == True:
                 list_result.append('传说')
@@ -143,7 +158,7 @@ check_and_write_file('history.txt')
 print("                      《声明》\n"
       "概率依照Apex Ledgends游戏公示概率\n"
       "稀有或更好100% , 史诗24.8% , 传说7.4% , 神话>1% 即0.2%\n"
-      "此代码仅供娱乐与Electronic Arts Inc.和Respawn Studio Inc.\n"
+      "此代码与Electronic Arts Inc.和Respawn Studio Inc.\n"
       "无任何关系,仅供娱乐")
 for i in range(100):  # 修改里面数字设置连抽次数
     print('------------------------')
