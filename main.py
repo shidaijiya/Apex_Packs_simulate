@@ -145,9 +145,8 @@ print("                      《声明》\n"
       "稀有或更好100% , 史诗24.8% , 传说7.4% , 神话>1% 即0.2%\n"
       "此代码仅供娱乐与Electronic Arts Inc.和Respawn Studio Inc.\n"
       "无任何关系,仅供娱乐")
-for i in range(100):
+for i in range(100):  # 修改里面数字设置连抽次数
     print('------------------------')
     list_result = start_draw()
     print(list_result)
-    time.sleep(0.5)
-
+    time.sleep(0.5)  # 修改里面数字设置连抽间隔时间
